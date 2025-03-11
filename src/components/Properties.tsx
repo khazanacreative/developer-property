@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ArrowRight, Bed, Bath, SquareFeet, MapPin, Heart } from 'lucide-react';
+import { ArrowRight, Bed, Bath, Square, MapPin, Heart } from 'lucide-react';
 
 const Properties = () => {
   const [activeTab, setActiveTab] = useState('all');
@@ -183,7 +183,7 @@ const Properties = () => {
                     <span className="text-natural-600 text-sm">{property.specs.baths} Kamar Mandi</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <SquareFeet size={16} className="text-natural-600" />
+                    <Square size={16} className="text-natural-600" />
                     <span className="text-natural-600 text-sm">{property.specs.size} m²</span>
                   </div>
                 </div>
