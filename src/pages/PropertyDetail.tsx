@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { ArrowLeft, Bed, Bath, Square, MapPin, Share2, Heart, Phone } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Bed, Bath, Square, MapPin, Share2, Heart, Phone } from 'lucide-react';
 
 const PropertyDetail = () => {
   const { id } = useParams();
