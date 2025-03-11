@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { ArrowRight, Bed, Bath, Square, MapPin, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Properties = () => {
   const [activeTab, setActiveTab] = useState('all');
@@ -8,86 +9,86 @@ const Properties = () => {
   const properties = [
     {
       id: 1,
-      title: 'Cluster Harmoni Asri Type 45/90',
-      location: 'Bogor, Jawa Barat',
-      price: '850.000.000',
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      title: "Cluster Harmoni Asri Type 45/90",
+      location: "Bogor, Jawa Barat",
+      price: "850.000.000",
+      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       specs: {
         beds: 2,
         baths: 1,
         size: 45
       },
-      category: 'rumah',
+      category: "rumah",
       popular: true
     },
     {
       id: 2,
-      title: 'Cluster Harmoni Asri Type 60/120',
-      location: 'Bogor, Jawa Barat',
-      price: '1.250.000.000',
-      image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      title: "Cluster Harmoni Asri Type 60/120",
+      location: "Bogor, Jawa Barat",
+      price: "1.250.000.000",
+      image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       specs: {
         beds: 3,
         baths: 2,
         size: 60
       },
-      category: 'rumah',
+      category: "rumah",
       popular: true
     },
     {
       id: 3,
-      title: 'Urban Heights Apartment Studio',
-      location: 'Jakarta Selatan',
-      price: '650.000.000',
-      image: 'https://images.unsplash.com/photo-1603425013520-e36cca646ced?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      title: "Urban Heights Apartment Studio",
+      location: "Jakarta Selatan",
+      price: "650.000.000",
+      image: "https://images.unsplash.com/photo-1603425013520-e36cca646ced?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       specs: {
         beds: 1,
         baths: 1,
         size: 28
       },
-      category: 'apartemen',
+      category: "apartemen",
       popular: false
     },
     {
       id: 4,
-      title: 'Urban Heights Apartment 2BR',
-      location: 'Jakarta Selatan',
-      price: '1.100.000.000',
-      image: 'https://images.unsplash.com/photo-1536376072261-38c75010e6c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
+      title: "Urban Heights Apartment 2BR",
+      location: "Jakarta Selatan",
+      price: "1.100.000.000",
+      image: "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
       specs: {
         beds: 2,
         baths: 1,
         size: 48
       },
-      category: 'apartemen',
+      category: "apartemen",
       popular: true
     },
     {
       id: 5,
-      title: 'Ruko Sunrise Valley 2 Lantai',
-      location: 'Surabaya, Jawa Timur',
-      price: '2.500.000.000',
-      image: 'https://images.unsplash.com/photo-1520355256553-57dc4fd22640?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80',
+      title: "Ruko Sunrise Valley 2 Lantai",
+      location: "Surabaya, Jawa Timur",
+      price: "2.500.000.000",
+      image: "https://images.unsplash.com/photo-1520355256553-57dc4fd22640?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
       specs: {
         beds: 1,
         baths: 2,
         size: 100
       },
-      category: 'ruko',
+      category: "ruko",
       popular: false
     },
     {
       id: 6,
-      title: 'Cluster Harmoni Asri Type 75/150',
-      location: 'Bogor, Jawa Barat',
-      price: '1.750.000.000',
-      image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      title: "Cluster Harmoni Asri Type 75/150",
+      location: "Bogor, Jawa Barat",
+      price: "1.750.000.000",
+      image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       specs: {
         beds: 4,
         baths: 2,
         size: 75
       },
-      category: 'rumah',
+      category: "rumah",
       popular: true
     },
   ];
@@ -188,26 +189,26 @@ const Properties = () => {
                   </div>
                 </div>
                 
-                <a 
-                  href="#" 
+                <Link 
+                  to={`/properties/${property.id}`} 
                   className="bg-primary text-white w-full py-2 rounded-lg inline-flex items-center justify-center gap-2 hover:bg-primary/90 transition-colors"
                 >
                   Lihat Detail
                   <ArrowRight size={16} />
-                </a>
+                </Link>
               </div>
             </div>
           ))}
         </div>
         
         <div className="text-center mt-12">
-          <a 
-            href="#" 
+          <Link 
+            to="/properties" 
             className="bg-natural-800 hover:bg-natural-900 text-white px-6 py-3 rounded-full font-medium inline-flex items-center justify-center gap-2 transition-colors"
           >
             Lihat Semua Katalog
             <ArrowRight size={18} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

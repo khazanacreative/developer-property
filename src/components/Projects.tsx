@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { ArrowRight, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState('semua');
@@ -123,10 +124,13 @@ const Projects = () => {
                 <h3 className="text-xl font-serif font-semibold mb-4">{project.title}</h3>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-natural-600 capitalize">{project.category}</span>
-                  <a href="#" className="text-primary hover:text-primary/80 font-medium text-sm inline-flex items-center gap-1">
+                  <Link 
+                    to={`/projects/${project.id}`} 
+                    className="text-primary hover:text-primary/80 font-medium text-sm inline-flex items-center gap-1"
+                  >
                     Detail
                     <ArrowRight size={16} />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -134,10 +138,13 @@ const Projects = () => {
         </div>
         
         <div className="text-center mt-12">
-          <a href="#properti" className="bg-primary/10 hover:bg-primary/20 text-primary px-6 py-3 rounded-full font-medium inline-flex items-center justify-center gap-2 transition-colors">
+          <Link 
+            to="/projects" 
+            className="bg-primary/10 hover:bg-primary/20 text-primary px-6 py-3 rounded-full font-medium inline-flex items-center justify-center gap-2 transition-colors"
+          >
             Lihat Semua Proyek
             <ArrowRight size={18} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

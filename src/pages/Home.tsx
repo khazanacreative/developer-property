@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import About from '@/components/About';
@@ -40,7 +41,7 @@ const Home = () => {
       description: "Nikmati gaya hidup urban dengan apartemen mewah yang dilengkapi berbagai fasilitas premium di lokasi strategis."
     },
     {
-      image: "https://images-that-dont-exist.fake/residential-complex.jpg",
+      image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
       title: "Kawasan Perumahan dengan Fasilitas Lengkap",
       subtitle: "Tempat Tinggal Terbaik untuk Keluarga",
       description: "Kawasan perumahan dengan fasilitas lengkap seperti taman bermain, kolam renang, dan area komersial untuk kenyamanan keluarga Anda."
@@ -158,8 +159,8 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Feature boxes */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mt-12 md:mt-16">
+            {/* Feature boxes - We'll add margin-bottom to ensure they aren't covered */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mt-12 md:mt-16 mb-16">
               <div className="bg-white p-6 rounded-xl shadow-md animate-fade-up" style={{ animationDelay: '400ms' }}>
                 <div className="bg-natural-100 w-12 h-12 flex items-center justify-center rounded-full mb-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-home text-primary"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -192,7 +193,7 @@ const Home = () => {
             </div>
           </div>
           
-          <div className="hidden md:block absolute -bottom-12 right-0 w-1/3 h-24 bg-natural-200 -z-10 opacity-80"></div>
+          {/* Remove the hidden div at the bottom that might be causing issues */}
         </section>
         
         <About />
