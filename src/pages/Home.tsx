@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import About from '@/components/About';
@@ -70,7 +69,7 @@ const Home = () => {
       <Navbar />
       <main>
         {/* Hero section with slider */}
-        <section id="beranda" className="relative bg-natural-50 hero-shape pb-16 pt-32 md:pt-40 overflow-hidden">
+        <section id="beranda" className="relative bg-natural-50 hero-shape pb-24 pt-32 md:pt-40 overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-cover bg-center" style={{ backgroundImage: `url(${slides[currentSlide].image})` }}></div>
           
           <div className="container relative z-10">
@@ -123,7 +122,6 @@ const Home = () => {
                   </div>
                 </div>
                 
-                {/* Slider controls */}
                 <div className="absolute top-1/2 -translate-y-1/2 left-4">
                   <button 
                     onClick={prevSlide}
@@ -143,7 +141,6 @@ const Home = () => {
                   </button>
                 </div>
                 
-                {/* Slide indicators */}
                 <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2">
                   {slides.map((_, index) => (
                     <button
@@ -159,8 +156,7 @@ const Home = () => {
               </div>
             </div>
 
-            {/* Feature boxes - We'll add margin-bottom to ensure they aren't covered */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mt-12 md:mt-16 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mt-12 md:mt-16 mb-24">
               <div className="bg-white p-6 rounded-xl shadow-md animate-fade-up" style={{ animationDelay: '400ms' }}>
                 <div className="bg-natural-100 w-12 h-12 flex items-center justify-center rounded-full mb-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-home text-primary"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -192,8 +188,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-          
-          {/* Remove the hidden div at the bottom that might be causing issues */}
         </section>
         
         <About />
