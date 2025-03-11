@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -22,12 +21,19 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Beranda', href: '#beranda' },
-    { name: 'Tentang Kami', href: '#tentang' },
-    { name: 'Proyek', href: '#proyek' },
-    { name: 'Properti', href: '#properti' },
-    { name: 'Hubungi Kami', href: '#kontak' },
+    { name: 'Beranda', href: '/', hash: '#beranda' },
+    { name: 'Tentang Kami', href: '/about', hash: '#tentang' },
+    { name: 'Proyek', href: '/projects', hash: '#proyek' },
+    { name: 'Properti', href: '/properties', hash: '#properti' },
+    { name: 'Hubungi Kami', href: '/contact', hash: '#kontak', isButton: true },
   ];
+
+  const getLinkHref = (link) => {
+    if (window.location.pathname === '/' && link.hash && link.href === '/') {
+      return link.hash;
+    }
+    return link.href;
+  };
 
   return (
     <header
@@ -39,36 +45,42 @@ const Navbar = () => {
       )}
     >
       <div className="container flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <span className="text-primary font-serif font-bold text-2xl">AlAsri</span>
           <span className="text-natural-800 font-serif italic">Hunian</span>
-        </a>
+        </Link>
 
-        {/* Desktop menu */}
         <nav className="hidden md:block">
           <ul className="flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navLinks.filter(link => !link.isButton).map((link) => (
               <li key={link.name}>
-                <a 
-                  href={link.href}
+                <Link 
+                  to={getLinkHref(link)}
                   className="text-natural-800 hover:text-primary relative font-medium text-sm transition-colors"
+                  onClick={() => {
+                    if (link.hash && window.location.pathname === '/') {
+                      const element = document.querySelector(link.hash);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }
+                  }}
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
             <li>
-              <a 
-                href="#kontak" 
+              <Link 
+                to="/contact" 
                 className="bg-primary text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors"
               >
                 Hubungi Kami
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
 
-        {/* Mobile menu button */}
         <button 
           className="md:hidden text-natural-800 p-2"
           onClick={() => setIsOpen(!isOpen)}
@@ -77,7 +89,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       <div 
         className={cn(
           "fixed inset-0 bg-white z-40 transition-transform duration-300 md:hidden pt-20",
@@ -86,25 +97,35 @@ const Navbar = () => {
       >
         <nav className="container px-8">
           <ul className="flex flex-col gap-6">
-            {navLinks.map((link) => (
+            {navLinks.filter(link => !link.isButton).map((link) => (
               <li key={link.name} className="border-b border-natural-100 pb-3">
-                <a 
-                  href={link.href}
+                <Link 
+                  to={getLinkHref(link)}
                   className="text-natural-800 hover:text-primary text-lg font-medium"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false);
+                    if (link.hash && window.location.pathname === '/') {
+                      setTimeout(() => {
+                        const element = document.querySelector(link.hash);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }
+                  }}
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
             <li className="pt-4">
-              <a 
-                href="#kontak" 
+              <Link 
+                to="/contact" 
                 className="bg-primary text-white px-6 py-3 rounded-full text-base font-medium hover:bg-primary/90 transition-colors block text-center"
                 onClick={() => setIsOpen(false)}
               >
                 Hubungi Kami
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

@@ -18,7 +18,7 @@ const About = () => {
               </div>
               <div className="hidden md:block absolute top-10 -left-10 w-full h-full border-2 border-primary rounded-2xl -z-10"></div>
               
-              <div className="absolute -bottom-8 -right-8 md:right-auto md:left-1/2 md:-translate-x-1/2 bg-white glass-morphism p-6 rounded-xl shadow-lg md:w-80">
+              <div className="absolute -bottom-8 -right-8 md:right-auto md:left-1/2 md:-translate-x-1/2 bg-white glass-morphism p-6 rounded-xl shadow-lg md:w-80 z-10">
                 <div className="flex items-center gap-6">
                   <div className="shrink-0">
                     <div className="w-16 h-16 rounded-full bg-natural-100 flex items-center justify-center">
@@ -69,17 +69,17 @@ const About = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#proyek" className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-medium inline-flex items-center justify-center gap-2 transition-colors">
+              <a href="/projects" className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-medium inline-flex items-center justify-center gap-2 transition-colors">
                 Lihat Portofolio Kami
               </a>
-              <a href="#kontak" className="bg-natural-100 hover:bg-natural-200 text-natural-800 px-6 py-3 rounded-full font-medium inline-flex items-center justify-center transition-colors">
+              <a href="/contact" className="bg-natural-100 hover:bg-natural-200 text-natural-800 px-6 py-3 rounded-full font-medium inline-flex items-center justify-center transition-colors">
                 Hubungi Kami
               </a>
             </div>
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24 pt-12">
           <div className="text-center p-8 border border-natural-200 rounded-xl hover:border-primary hover:shadow-md transition-all duration-300">
             <div className="bg-natural-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5">
               <Award className="text-primary h-8 w-8" />

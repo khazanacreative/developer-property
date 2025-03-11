@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Facebook, Instagram, Twitter, Linkedin, ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -10,15 +11,23 @@ const Footer = () => {
     });
   };
 
+  // Helper function to determine if we should use hash or regular link
+  const getNavLink = (hash, path) => {
+    if (window.location.pathname === '/') {
+      return hash;
+    }
+    return path;
+  };
+
   return (
     <footer className="bg-natural-800 text-white relative">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 py-16">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
+            <Link to="/" className="flex items-center gap-2 mb-6">
               <span className="text-white font-serif font-bold text-2xl">AlAsri</span>
               <span className="text-primary font-serif italic">Hunian</span>
-            </div>
+            </Link>
             <p className="text-natural-300 mb-6 max-w-md">
               PT AlAsri Hunian adalah pengembang properti terkemuka di Indonesia yang berfokus pada 
               pembangunan hunian berkualitas dengan konsep modern dan ramah lingkungan.
@@ -43,19 +52,29 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-6">Navigasi Cepat</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#beranda" className="text-natural-300 hover:text-primary transition-colors">Beranda</a>
+                <Link to={getNavLink('#beranda', '/')} className="text-natural-300 hover:text-primary transition-colors">
+                  Beranda
+                </Link>
               </li>
               <li>
-                <a href="#tentang" className="text-natural-300 hover:text-primary transition-colors">Tentang Kami</a>
+                <Link to={getNavLink('#tentang', '/about')} className="text-natural-300 hover:text-primary transition-colors">
+                  Tentang Kami
+                </Link>
               </li>
               <li>
-                <a href="#proyek" className="text-natural-300 hover:text-primary transition-colors">Proyek</a>
+                <Link to={getNavLink('#proyek', '/projects')} className="text-natural-300 hover:text-primary transition-colors">
+                  Proyek
+                </Link>
               </li>
               <li>
-                <a href="#properti" className="text-natural-300 hover:text-primary transition-colors">Properti</a>
+                <Link to={getNavLink('#properti', '/properties')} className="text-natural-300 hover:text-primary transition-colors">
+                  Properti
+                </Link>
               </li>
               <li>
-                <a href="#kontak" className="text-natural-300 hover:text-primary transition-colors">Hubungi Kami</a>
+                <Link to={getNavLink('#kontak', '/contact')} className="text-natural-300 hover:text-primary transition-colors">
+                  Hubungi Kami
+                </Link>
               </li>
             </ul>
           </div>
