@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import About from '@/components/About';
@@ -78,8 +79,8 @@ const Home = () => {
                 {slides[currentSlide].subtitle}
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 animate-fade-down" style={{ animationDelay: '100ms' }}>
-                {slides[currentSlide].title.split(' ').slice(0, -3).join(' ')} <br className="hidden md:block" />
-                <span className="text-primary">{slides[currentSlide].title.split(' ').slice(-3).join(' ')}</span>
+                <span className="text-primary">Hunian Berkualitas</span> <br className="hidden md:block" />
+                Untuk Keluarga Indonesia
               </h1>
               <p className="text-natural-700 text-lg md:text-xl max-w-2xl mx-auto mb-8 animate-fade-down" style={{ animationDelay: '200ms' }}>
                 {slides[currentSlide].description}
