@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import About from '@/components/About';
@@ -41,7 +40,7 @@ const Home = () => {
       description: "Nikmati gaya hidup urban dengan apartemen mewah yang dilengkapi berbagai fasilitas premium di lokasi strategis."
     },
     {
-      image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+      image: "https://images-that-dont-exist.fake/residential-complex.jpg",
       title: "Kawasan Perumahan dengan Fasilitas Lengkap",
       subtitle: "Tempat Tinggal Terbaik untuk Keluarga",
       description: "Kawasan perumahan dengan fasilitas lengkap seperti taman bermain, kolam renang, dan area komersial untuk kenyamanan keluarga Anda."
@@ -70,7 +69,7 @@ const Home = () => {
       <Navbar />
       <main>
         {/* Hero section with slider */}
-        <section id="beranda" className="relative bg-natural-50 hero-shape pb-24 pt-32 md:pt-40 overflow-hidden">
+        <section id="beranda" className="relative bg-natural-50 hero-shape pb-16 pt-32 md:pt-40 overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-cover bg-center" style={{ backgroundImage: `url(${slides[currentSlide].image})` }}></div>
           
           <div className="container relative z-10">
@@ -79,8 +78,8 @@ const Home = () => {
                 {slides[currentSlide].subtitle}
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 animate-fade-down" style={{ animationDelay: '100ms' }}>
-                <span className="text-primary">Hunian Berkualitas</span> <br className="hidden md:block" />
-                Untuk Keluarga Indonesia
+                {slides[currentSlide].title.split(' ').slice(0, -3).join(' ')} <br className="hidden md:block" />
+                <span className="text-primary">{slides[currentSlide].title.split(' ').slice(-3).join(' ')}</span>
               </h1>
               <p className="text-natural-700 text-lg md:text-xl max-w-2xl mx-auto mb-8 animate-fade-down" style={{ animationDelay: '200ms' }}>
                 {slides[currentSlide].description}
@@ -123,6 +122,7 @@ const Home = () => {
                   </div>
                 </div>
                 
+                {/* Slider controls */}
                 <div className="absolute top-1/2 -translate-y-1/2 left-4">
                   <button 
                     onClick={prevSlide}
@@ -142,6 +142,7 @@ const Home = () => {
                   </button>
                 </div>
                 
+                {/* Slide indicators */}
                 <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2">
                   {slides.map((_, index) => (
                     <button
@@ -157,7 +158,8 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mt-12 md:mt-16 mb-24">
+            {/* Feature boxes */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 mt-12 md:mt-16">
               <div className="bg-white p-6 rounded-xl shadow-md animate-fade-up" style={{ animationDelay: '400ms' }}>
                 <div className="bg-natural-100 w-12 h-12 flex items-center justify-center rounded-full mb-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-home text-primary"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -189,6 +191,8 @@ const Home = () => {
               </div>
             </div>
           </div>
+          
+          <div className="hidden md:block absolute -bottom-12 right-0 w-1/3 h-24 bg-natural-200 -z-10 opacity-80"></div>
         </section>
         
         <About />
